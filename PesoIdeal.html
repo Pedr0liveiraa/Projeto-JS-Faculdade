@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso Ideal</title>
+    <link rel="stylesheet" href="projetoJS.css">
+    <script src="index.js"></script>
+</head>
+<body >
+    <button class="back" onclick="redirect('indexPrincipal.html')">Retornar</button>
+    <div id="exer4">
+        <h1 class="funções">Peso Ideal</h1>
+        <input type="number" id="altura" placeholder="Sua Altura:         m"><br><br>
+        <input type="radio" name="sexo" id="masc" checked>
+        <label for="masc">HOMEM</label>
+        <input type="radio" name="sexo" id="fem">
+        <label for="fem">MULHER</label> <br><br>
+        <button class="botao" type="submit" onclick="calcularPeso()">Calcular</button>
+        <p id="res04">Resultado: </p>
+    </div>
+</body>
+</html>

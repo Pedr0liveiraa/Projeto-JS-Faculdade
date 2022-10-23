@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleitores do Município</title>
+    <link rel="stylesheet" href="projetoJS.css">
+    <script src="index.js"></script>
+</head>
+<body >
+    <button class="back" onclick="redirect('indexPrincipal.html')">Retornar</button>
+    <div id="exer12">
+        <h1 class="funções">Eleitores Município</h1>
+        <input type="number" id="habitantes" placeholder="N° de Habitantes:"><br><br>
+        <input type="number" id="brancos" placeholder="Votos Brancos:      %"><br><br>
+        <input type="number" id="nulos" placeholder="Votos Nulos:        %"><br><br>
+        <input type="number" id="validos" placeholder="Votos Válidos:      %"><br><br>
+        <button class="botao" type="submit" onclick="calcularPercentual()">Calcular</button>
+        <p id="res12">Resultado: </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="index.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-image: linear-gradient(30deg,rgb(255, 0, 234),rgb(245, 7, 7));
+            align-items: center;
+            height: 100vh;
+            font-family: 'VT323', monospace;
+        }
+        .calculadora{
+            box-shadow: 6px 8px 10px 8px rgba(0, 0, 0, 0.589);
+            border-radius: 10px;
+            width: 225px;
+            height: 400px;
+            color: white;
+            padding: 15px;
+        }
+        .botao{
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.712);
+            color: white;
+            font-family: 'VT323', monospace;
+            font-size: 25px;
+            margin: 2px;
+            text-shadow: 1px 1px rgb(0, 253, 232);
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .botao:hover{
+            background-color: rgba(51, 49, 49, 0.781);
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+            text-shadow: 2px 2px rgb(0, 253, 232);
+            font-size: 40px;
+        }
+        #resultado{
+            background-color: rgba(0, 0, 0, 0.712);
+            width: 215px;
+            height: 48px;
+            margin: 5px;
+            color: white;
+            font-size: 40px;
+            text-align: right;
+            border-radius: 5px;
+        }
+        .backButton{
+            font-family: 'VT323', monospace;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.829) ;
+            height: 70px;
+            width: 140px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 25px;
+            border-radius: 5px;
+            border: none;
+            border: 1px solid rgb(0, 0, 0);
+            box-shadow: 3px 3px rgb(0, 253, 232);
+            position: absolute;
+            top: 0.5%;
+            left: 0.2%;
+        }
+        .backButton:hover{
+            background-color: rgba(0, 0, 0, 0.705);
+            border: none;
+        }
+    </style>
+</head>
+<body >
+    <button class="backButton" onclick="redirect('indexPrincipal.html')">Retornar</button>
+    <div class="fundo" id="exer5">
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <p id="resultado"></p>
+            <table>
+                <tr>
+                    <td><button class="botao" onclick="clean()">C</button></td>
+                    <td><button class="botao" onclick="back()"><</button></td>
+                    <td><button class="botao" onclick="numero('/')">/</button></td>
+                    <td><button class="botao" onclick="numero('*')">x</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="numero('9')">9</button></td>
+                    <td><button class="botao" onclick="numero('8')">8</button></td>
+                    <td><button class="botao" onclick="numero('7')">7</button></td>
+                    <td><button class="botao" onclick="numero('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="numero('6')">6</button></td>
+                    <td><button class="botao" onclick="numero('5')">5</button></td>
+                    <td><button class="botao" onclick="numero('4')">4</button></td>
+                    <td><button class="botao" onclick="numero('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="numero('3')">3</button></td>
+                    <td><button class="botao" onclick="numero('2')">2</button></td>
+                    <td><button class="botao" onclick="numero('1')">1</button></td>
+                    <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="numero('0')">0</button></td>
+                    <td><button class="botao" onclick="numero('.')">.</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function numero(num){
+            var numero = document.querySelector("#resultado").innerHTML;
+            document.querySelector("#resultado").innerHTML = numero + num;
+        }
+        function clean(){
+            document.querySelector("#resultado").innerHTML = "";
+        }
+        function back(){
+            var resultado = document.querySelector("#resultado").innerHTML;
+            document.querySelector("#resultado").innerHTML = resultado.substring(0, resultado.length -1)
+        }
+        function calcular(){
+            var resultado = document.querySelector("#resultado").innerHTML;
+            if(resultado){
+                document.querySelector("#resultado").innerHTML = (eval(resultado)).toFixed(5);
+            }
+        }
+    </script>
+</body>
+</html>
